@@ -100,8 +100,79 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Edinburgh Fringe Simulator 2020" startnode="1" creator="Twine" creator-version="2.3.9" ifid="642A3FE1-66C9-48A0-B435-B58FFF41A7C2" zoom="1" format="SugarCube" format-version="2.31.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
-font-size: 150%;
+	<tw-storydata name="Edinburgh Fringe Simulator 2020" startnode="1" creator="Twine" creator-version="2.3.9" ifid="642A3FE1-66C9-48A0-B435-B58FFF41A7C2" zoom="1" format="SugarCube" format-version="2.31.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#ui-bar {
+	display: none;
+}
+
+html {
+  width: 100%;
+
+  /* Vertical colour gradient */
+  background-image: linear-gradient(to bottom,  black, midnightblue);
+  background-image: -webkit-linear-gradient(top,  black, midnightblue);
+  background-attachment: fixed;
+
+  /* Fallback colour */
+  background-color: midnightblue;
+
+  /* Vertical centering */
+  height: 100%;
+  display: table;
+}
+body {
+  /* Remove default styles */
+  font-size: 100%;
+  background-color: transparent;
+  margin: 0;
+
+  /* Vertical centering */
+  height:100%;
+  display:table-cell;
+  vertical-align: middle;
+}
+#passages {
+  border-left: 0px;
+  margin: 0;
+  /* Keep a gap at the top and bottom of the page,
+      when the text is longer than the window's height. */
+  padding: 5% 0;
+}
+
+.passage {
+  /* Passage width */
+  width: 60%;
+  /* Horizontal centering */
+  margin: 0 auto;
+
+  /* Text formatting */
+  color: white;
+  font-size: 100%;
+  text-align:center;
+}
+
+/* No sidebar */
+#sidebar {
+  display:none;
+}
+
+/* Links */
+a.internalLink, a.externalLink {
+  color: cornflowerblue;
+}
+a.internalLink:hover, a.externalLink:hover {
+  color: lightskyblue;
+  text-decoration: none;
+}
+
+/* Shrink the page when viewed on devices with a low screen width */
+@media screen and (max-width: 960px) {
+  .passage { font-size: 90%; width: 70%; }
+}
+@media screen and (max-width: 840px) {
+  .passage {  font-size: 87.5%; width: 80%; }
+}
+@media screen and (max-width: 720px) {
+  .passage { font-size: 75%; width: 90%; }
 }
 
 .macro-repeat-insert,
@@ -113,13 +184,7 @@ font-size: 150%;
 
 body .passage {
 	transition-duration: 1500ms;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">$(document).on("mousedown", function (event) {
-	$(".next")
-	.find('a')
-	.trigger("click");
-});
-
-</script><tw-passagedata pid="1" name="Introduction" tags="" position="21,65" size="100,100">&lt;&lt;timed 100ms t8n&gt;&gt;It&#39;s January 2020. 
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Introduction" tags="" position="20,64" size="100,100">&lt;&lt;timed 100ms t8n&gt;&gt;It&#39;s January 2020. 
 
 &lt;&lt;next 2500ms&gt;&gt;You, an aspiring comedian, have signed up to take your debut show to the Edinburgh Fringe this August.&lt;&lt;next&gt;&gt; Which, by the way, is 100% going ahead.&lt;&lt;next&gt;&gt;
 
@@ -127,7 +192,14 @@ The coronavirus turned out to be a massive hoax, one that will go down in histor
 
 Welcome to &#39;&#39;The Edinburgh Fringe Simulator 2020&#39;&#39;.&lt;&lt;next 2s&gt;&gt;
 
-[[Click here to begin.|Introduction 2]]&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Introduction 2" tags="" position="171,71" size="100,100">Before you begin, you must choose your difficulty setting. This will determine your background, available funds and self-confidence, but also your comedic skill and career success to date, which will impact how smoothly the Fringe will go for you.
+[[Click here to begin.|Introduction 2]]&lt;&lt;/timed&gt;&gt;
+
+
+
+
+
+
+</tw-passagedata><tw-passagedata pid="2" name="Introduction 2" tags="" position="171,71" size="100,100">Before you begin, you must choose your difficulty setting. This will determine your background, available funds and self-confidence, but also your comedic skill and career success to date, which will impact how smoothly the Fringe will go for you.
 
 If you are not experienced to the gruelling world of the Festival, I suggest you do not play the harder difficulties.&lt;&lt;timed 6s t8n&gt;&gt;
 
@@ -137,7 +209,12 @@ If you are not experienced to the gruelling world of the Festival, I suggest you
 
 [[Hard Difficulty]]
 
-[[Extreme Difficulty]]&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Very Easy Difficulty" tags="" position="181,208" size="100,100">You have selected &#39;&#39;Very Easy Difficulty&#39;&#39;.
+[[Extreme Difficulty]]&lt;&lt;/timed&gt;&gt;
+
+
+
+
+</tw-passagedata><tw-passagedata pid="3" name="Very Easy Difficulty" tags="" position="181,208" size="100,100">You have selected &#39;&#39;Very Easy Difficulty&#39;&#39;.
 
 
 &lt;&lt;timed 2s t8n&gt;&gt;You are the son of a famous TV comedian. 
@@ -165,7 +242,10 @@ In order to distance yourself from your family, you have changed your surname. Y
 &lt;&lt;set $selfconfidence to either(80, 85, 90, 95, 100)&gt;&gt;
 &lt;&lt;set $careersuccess to either(75, 80, 85, 90)&gt;&gt;
 &lt;&lt;set $skill to either(30, 35, 40, 45, 50)&gt;&gt;
-&lt;&lt;set $funds to 2000000&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Normal Difficulty" tags="" position="328,215" size="100,100">You have selected &#39;&#39;Normal Difficulty&#39;&#39;.
+&lt;&lt;set $funds to 2000000&gt;&gt;
+
+
+</tw-passagedata><tw-passagedata pid="4" name="Normal Difficulty" tags="" position="328,215" size="100,100">You have selected &#39;&#39;Normal Difficulty&#39;&#39;.
 
 
 &lt;&lt;timed 2s t8n&gt;&gt;Your name is Michael Ratty and you are one of the hot new prospects debuting at the Fringe this year.
@@ -533,7 +613,9 @@ Self-Confidence: $selfconfidence / 100 ($selfconfidencechange)
 Mental Health: $mentalhealth / 100 ($mentalhealthchange)
 
 [[Work on something else|January2]]
-</tw-passagedata><tw-passagedata pid="23" name="February" tags="" position="678,2611" size="100,100">That&#39;s </tw-passagedata><tw-passagedata pid="24" name="JanuaryEnd" tags="" position="610,2446" size="100,100">January is over! One month down, 6 more to go before you&#39;re rolling into Edinburgh Waverley station on the earliest and cheapest train possible. 
+</tw-passagedata><tw-passagedata pid="23" name="February" tags="" position="678,2611" size="100,100">It&#39;s February 2020.
+
+</tw-passagedata><tw-passagedata pid="24" name="JanuaryEnd" tags="" position="610,2446" size="100,100">January is over! One month down, 6 more to go before you&#39;re rolling into Edinburgh Waverley station on the earliest and cheapest train possible. 
 
 Your end-of-month expenses exactly matched your income this month so there are no extra changes to your Edinburgh kitty. Very convenient as I don&#39;t have to do any extra complicated coding.
 
@@ -590,7 +672,7 @@ You aren&#39;t quite there yet, but maybe in August when you&#39;re riding the E
 
 [[Adam Garand&#39;s &quot;Disbarred&quot; - an older British comedian in his 50s who was recently cancelled for his inappropriate behaviour to other comics. His Netflix specials are still available online.|Adam Garand]]
 
-[[Ali Wong&#39;s &quot;Baby Cobra&quot; - An all-round legend and great show.|Ali Wong]]</tw-passagedata><tw-passagedata pid="28" name="Schmooze" tags="" position="1729,1283" size="100,100">&lt;&lt;if $selfconfidence gte 50&gt;&gt;You stride straight up to Josh Peters and introduce yourself by only saying your full name.
+[[Ali Wong&#39;s &quot;Baby Cobra&quot; - An all-round legend and great show.|Ali Wong]]</tw-passagedata><tw-passagedata pid="28" name="Schmooze" tags="" position="1729,1282" size="100,100">&lt;&lt;if $selfconfidence gte 50&gt;&gt;You stride straight up to Josh Peters and introduce yourself by only saying your full name.
 
 &quot;$fullname.&quot;
 
@@ -610,7 +692,7 @@ He chuckles and extends his hand, introducing himself as a producer.
 
 [[&quot;Errr...you producer? Me comedian...please...produce me?&quot;|SchmoozeA]]
 
-[[&quot;Hi...urm...you spat on my face once!! Haha.&quot;|SchmoozeB]]</tw-passagedata><tw-passagedata pid="29" name="SpitWait" tags="" position="1864,1278" size="100,100">There&#39;s a saying, spit never strikes the same spot twice, despite Josh Peters having a particularly frothy way of speaking. Josh never does spit on you the whole evening. He does, however, accidentally spit in the face of another comedian at your level, Rob Trout, and you seethe with jealousy as you watch this incident take place from six metres away. That was YOUR move. That should be YOUR face covered in Josh&#39;s saliva. The comedy industry is unjust.
+[[&quot;Hi...urm...you spat on my face once!! Haha.&quot;|SchmoozeB]]&lt;&lt;/if&gt;</tw-passagedata><tw-passagedata pid="29" name="SpitWait" tags="" position="1864,1278" size="100,100">There&#39;s a saying, spit never strikes the same spot twice, despite Josh Peters having a particularly frothy way of speaking. Josh never does spit on you the whole evening. He does, however, accidentally spit in the face of another comedian at your level, Rob Trout, and you seethe with jealousy as you watch this incident take place from six metres away. That was YOUR move. That should be YOUR face covered in Josh&#39;s saliva. The comedy industry is unjust.
 
 You decide to call it a night and go home, no closer to securing Josh Peters&#39; backing, plus you spent wayyy too much at the overpriced bar.
 
@@ -910,7 +992,7 @@ You are really brave for doing this. Really really brave. Very few people apprec
 
 
 
-</tw-passagedata><tw-passagedata pid="53" name="ContactJoshPeters" tags="" position="1482,1016" size="100,100">The cold-calling Facebook method was a no-go. Still, you have your other options remaining, and after the time you&#39;ve invested during the Facebook-search extravaganza, the sunk-cost fallacy sets in. You&#39;re now more determined than ever to find a producer.
+</tw-passagedata><tw-passagedata pid="53" name="ContactJoshPeters" tags="" position="1529,1007" size="100,100">The cold-calling Facebook method was a no-go. Still, you have your other options remaining, and after the time you&#39;ve invested during the Facebook-search extravaganza, the sunk-cost fallacy sets in. You&#39;re now more determined than ever to find a producer.
 
 [[Type in random e-mail addresses using combinations of &quot;Josh Peters&quot; and &quot;VeryFunnyProductions.co.uk&quot;|JoshPetersEmail]]
 
@@ -957,7 +1039,7 @@ Comedian: *through sobs* you can&#39;t just say everything is a venue
 
 Billy Tompkins-Blazer: *points at seagull flying past* venue
 
-His rooms leave a lot to be desired, especially by any health code or fire safety inspector. Some rooms, such as &quot;The Grotto&quot; was not originally designed to be occupied by adults, as it was an old Victorian crawl space that could only be accessed by children. Other venues, like &quot;The Foundry&quot;, are a literal toilet.
+His rooms leave a lot to be desired, especially by any health code or fire safety inspector. Some rooms, such as &quot;The Grotto&quot;, were not originally designed to be occupied by adults, as it was an old Victorian crawl space that could only be accessed by children. Other venues, like &quot;The Foundry&quot;, are a literal toilet.
 
 However, do not scoff so quickly. These rooms are the only way to make money in the festival. Alice Langley said that despite being a TV comic, performing in The Shadow Forest last year meant she had her first break-even Fringe in 15 years, and that in itself was well worth the long-term damage to her health she suffered from being near black mold for a month.
 
@@ -976,7 +1058,12 @@ If you are not experienced to the gruelling world of the Festival, I suggest you
 
 [[Hard Difficulty]]
 
-[[Extreme Difficulty]]</tw-passagedata><tw-passagedata pid="60" name="Hog Bucket Studios" tags="" position="1291,628" size="100,100">Hog Bucket Studios are a mid-tier venue chain, whose main selling point is they are half-way between a paid Fringe venue and a free Fringe venue, while having the best of neither. 
+[[Extreme Difficulty]]
+
+
+
+
+</tw-passagedata><tw-passagedata pid="60" name="Hog Bucket Studios" tags="" position="1291,628" size="100,100">Hog Bucket Studios are a mid-tier venue chain, whose main selling point is they are half-way between a paid Fringe venue and a free Fringe venue, while having the best of neither. 
 
 Still, many comedians have opted to go over to Hog Bucket due to lower costs and their delicious nachos. It ends up being a good place for newer acts to do their show without being bogged down in things like excess paperwork, PR or adequately paid staff at hand.
 
@@ -985,13 +1072,13 @@ Still, many comedians have opted to go over to Hog Bucket due to lower costs and
 [[Sounds like the place for me!|HogBucketApply]]
 </tw-passagedata><tw-passagedata pid="61" name="HogBucketApply" tags="" position="1286,781" size="100,100">You shoot off an e-mail. These people usually take about a month to get back.
 
-[[Work on other things.|January2]]</tw-passagedata><tw-passagedata pid="62" name="FreeFringeApply" tags="" position="1444,779" size="100,100">You shoot off an e-mail. These people usually take about a month to get back.
+[[Work on other things.|January2]]</tw-passagedata><tw-passagedata pid="62" name="FreeFringeApply" tags="" position="1441,776" size="100,100">You shoot off an e-mail. These people usually take about a month to get back.
 
 [[Work on other things.|January2]]</tw-passagedata><tw-passagedata pid="63" name="ChuckleContact" tags="" position="957,1335" size="100,100">You shoot off an e-mail. These people usually take about a month to get back.
 
-[[Work on other things.|January2]]</tw-passagedata><tw-passagedata pid="64" name="Chuckle2" tags="" position="962,1209" size="100,100">Here&#39;s another flyer, this time for Jamie Jenkinson&#39;s &quot;Terrifed&quot;.
+[[Work on other things.|January2]]</tw-passagedata><tw-passagedata pid="64" name="Chuckle2" tags="" position="964,1207" size="100,100">Here&#39;s another flyer, this time for Jamie Jenkinson&#39;s &quot;Terrifed&quot;.
 
-&quot;Jamie Jenkinson is TERRIFIED. Join Jamie for a whistle-stop tour of all the terrifying things in 2019, as well as his opinions on life, love and the internet. Now reaching his mid-thirties, Rob is more terrified than ever! All he wants is to have a good time, but the world just seems to get more terrifying! Longlisted for the Jokey Bastard New Act Competition in 2015.&quot;
+&quot;Jamie Jenkinson is TERRIFIED. Join Jamie for a whistle-stop tour of all the terrifying things in 2019, as well as his opinions on life, love and the internet. Now reaching his mid-thirties, Jamie is more terrified than ever! All he wants is to have a good time, but the world just seems to get more terrifying! Longlisted for the Jokey Bastard New Act Competition in 2015.&quot;
 
 [[They may be generic but at least they have producer backing. Sign me up!|ChuckleContact]]
 
